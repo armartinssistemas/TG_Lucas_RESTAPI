@@ -39,7 +39,7 @@ public class UserService {
         Método Vulnerável
         */
 	public User findByIdNative(Integer id) {
-            return (User) dao.executeNativeSingle("select * from User where id = "+id, User.class);
+            return (User) dao.executeNativeSingle("select * from user where id = "+id, User.class);
 	}
         /*
         Método Vulnerável

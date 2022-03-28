@@ -44,6 +44,7 @@ public abstract class AbstractDao<T, PK extends Serializable> {
 	}
 	
 	public List<T> findAll() {
+            System.out.println("Tabela"+entityClass.getSimpleName());
 		return entityManager
 				.createQuery("from " + entityClass.getSimpleName(), entityClass)
 				.getResultList();

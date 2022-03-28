@@ -20,12 +20,14 @@ public class HomeController {
     @PostMapping(value = "/Home", consumes = {"application/json"})
     public ResponseEntity<Map> login(@RequestBody  Map<String, String> param){
         try{
+            System.out.println("cheguei");
             List<User> users = userService.findAll().stream().filter(user->user.getLogin().equals(param.get("login")) && user.getSenha().equals(param.get("senha"))).collect(Collectors.toList());
             if (users!=null && !users.isEmpty())        
                 return new ResponseEntity(param, HttpStatus.OK);
             else
                 return new ResponseEntity(HttpStatus.FORBIDDEN);
         }catch(Exception e){
+            System.out.println(e.getMessage());
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
     }
