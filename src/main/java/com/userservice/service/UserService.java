@@ -45,6 +45,6 @@ public class UserService {
         Método Vulnerável
         */
 	public List<User> findAllNative() {
-            return dao.executeNativeList("select * from User");
+            return dao.executeNativeList("select * from user");
 	}
 }
